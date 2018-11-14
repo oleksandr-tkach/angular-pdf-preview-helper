@@ -1,0 +1,37 @@
+<div>
+  <ng-container *ngIf="pdfDetails.numPages > 1">
+    <div class="row">
+      <div class="col-12">
+        <div class="btn-group m-btn-group m-btn-group--pill" role="group">
+          <button (click)="onPDFPrevPageClick()" type="button"
+            class="m-btn btn btn-secondary">Prev</button>
+          <button (click)="onPDFZoomClick()" type="button"
+            class="m-btn btn btn-secondary">Zoom in/out</button>
+          <button (click)="onPDFNextPageClick()" type="button"
+            class="m-btn btn btn-secondary">Next</button>
+        </div>
+        &nbsp; &nbsp;
+        <span>
+          <span>Page:</span>
+          {{ pdfDetails.pageNum }} / {{ pdfDetails.numPages }}
+        </span>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="pdfDetails.numPages === 1">
+    <div class="row">
+      <div class="col-12">
+        <button (click)="onPDFZoomClick()" class="btn m-btn--pill btn-secondary">
+          <span>Zoom in/out</span>
+        </button>
+      </div>
+    </div>
+  </ng-container>
+  <div class="row m--margin-top-10">
+    <div class="col-12">
+      <div id="pageElement">
+        <canvas id="m-file-preview-pdf"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
